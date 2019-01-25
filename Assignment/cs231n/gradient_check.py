@@ -115,7 +115,7 @@ def grad_check_sparse(f, x, analytic_grad, num_checks=10, h=1e-5):
     oldval = x[ix]
     x[ix] = oldval + h # increment by h
     fxph = f(x) # evaluate f(x + h)
-    x[ix] = oldval - h # increment by h
+    x[ix] = oldval - h # decrement by h
     fxmh = f(x) # evaluate f(x - h)
     x[ix] = oldval # reset
 

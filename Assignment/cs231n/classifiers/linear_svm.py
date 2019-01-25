@@ -88,6 +88,11 @@ def svm_loss_vectorized(W, X, y, reg):
     margins = np.maximum(0,margins)
     margins[np.arange(num_train),y] = 0
     
+    # short version
+    # margins = np.maximum(0, X.dot(W)-X.dot(W)[np.arange(num_train),y].reshape(-1,1)+1)
+    # margins[np.arange(num_train),y] = 0
+    
+    
     loss = np.sum(margins)
     
     # Compute the average
